@@ -8,7 +8,6 @@ function carregaUsuario($username, $password) {
 	$db = new PDO('mysql:host=localhost;dbname=makfood;charset=utf8', 'root', '');
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-	return $db;
 	
 	$stmt = $db->prepare("SELECT nome FROM usuario WHERE email=? AND senha = SHA1(?)"); 
 	$stmt->bindParam(1,$username); 
