@@ -28,4 +28,8 @@ class DB {
 		}
 	}
 
+	public function disconnect() {
+		$this->PDO = null;
+	}
+
 }

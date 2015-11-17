@@ -1,17 +1,23 @@
 <?php
-include_once '../helpers/dbconnect.php';
+if (isset($_POST['cadastrar'])) {
+	include_once '../helpers/db.php';
+	
+	$DB = new DB('localhost', 'root', '', 'makfood');
 
-if (isset ($_POST['cadastrar'])) {
-	$login = mysql_real_escape_string ( $_POST ['login'] );
-	$senha = sha1 ( mysql_real_escape_string ( $_POST ['senha'] ) ); 
-	$nome = mysql_real_escape_string ( $_POST ['nome'] );
-	$sobrenome = mysql_real_escape_string ( $_POST ['sobrenome'] );
-	$endereco1 = mysql_real_escape_string ( $_POST ['endereco'] );
-	$telefoneSemMascara = preg_replace("/[()-]/", '', $_POST['telefone']);
+	$cadastro = $DB->query('
+			INSERT INTO usuario (email, senha, nome, sobrenome, endereco1, telefone)
+			VALUES (:login, :senha, :nome, :sobrenome, :endereco1, :telefoneSemMascara)
+		', array(
+			':login' => $_POST['login'],
+			':senha' => $_POST['senha'],
+			':nome' => $_POST['nome'],
+			':sobrenome' => $_POST['sobrenome'],
+			':endereco1' => $_POST['endereco'],
+			':telefoneSemMascara' => preg_replace("/[()-]/", '', $_POST['telefone'])
+		));
 	
 	header("Content-type: text/html;charset=ISO-8859-1");
-	echo mysql_query("INSERT INTO usuario(email,senha,nome,sobrenome,endereco1,telefone) VALUES('$login','$senha','$nome','$sobrenome',
-			'$endereco1','$telefoneSemMascara')")
+	echo $cadastro->rowCount() == 1
 		? '<div class="alert alert-success"><i class="glyphicon glyphicon-ok"></i> Cadastrado com sucesso!</div>'
 		: '<div class="alert alert-danger"><i class="glyphicon glyphicon-remove"></i> Um erro ocorreu, por favor, tente novamente.</div>';
 } else {

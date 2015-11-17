@@ -1,30 +1,19 @@
 <?php
 session_start();
-include_once '../helpers/dbconnect.php';
+include_once '../helpers/db.php';
 include '../helpers/auth.php';
 
-
-function carregaUsuario($username, $password) {	
-	$db = new PDO('mysql:host=localhost;dbname=makfood;charset=utf8', 'root', '');
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-	
-	$stmt = $db->prepare("SELECT nome FROM usuario WHERE email=? AND senha = SHA1(?)"); 
-	$stmt->bindParam(1,$username); 
-	$stmt->bindParam(2,$password); 
-	$stmt->execute();
-	$number_of_rows = $stmt->fetchColumn();
-	
-	return $stmt !== false && $number_of_rows > 0 ? $stmt->fetch(PDO::FETCH_BOTH) : null;
-}
-
 header('Content-type: text/plain');
-if (!isLogado()) {	
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	
-	$usuario = carregaUsuario($username, $password);
-	if ($usuario != null) {
+if (!isLogado()) {		
+	$DB = new DB('localhost', 'root', '', 'makfood');
+
+	$usuarioQuery = $DB->query(
+			'SELECT nome FROM usuario WHERE email = :email AND senha = SHA1(:senha)',
+			array(':email' => $_POST['username'], ':senha' => $_POST['password'])
+		);
+
+	if ($usuarioQuery->rowCount() == 1) {
+		$usuario = $usuarioQuery->fetch();
 		$_SESSION['logado'] = true;
 		$_SESSION['nome'] = $usuario['nome'];
 		echo '1';
