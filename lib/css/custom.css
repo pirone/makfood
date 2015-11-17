@@ -1,0 +1,189 @@
+#bting2, #bting3, #bting4, #bting5 {
+	margin: 0 3px;
+}
+
+body {
+	background-color: #FF8C00;
+}
+
+#fundobranco {
+	background-color: #FFFFFF;
+	border-radius: 13px;
+}
+
+#meusPedidos h3 {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 20px;
+	color: #FF9509;
+}
+
+#meusPedidos h4 {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 15px;
+}
+
+label.error {
+	color: #FF0000;
+	font-size: 85%;
+}
+
+#listaTamanho li.link {
+	padding: 0;
+}
+
+#listaTamanho li.link a {
+	color: #333;
+	display: block;
+	padding: 10px 15px;
+	text-decoration: none;
+}
+
+#listaTamanho li.link.active a {
+	color: #fff;
+}
+
+#listaIngredientes li {
+	cursor: pointer;
+}
+
+#listaIngredientes li img {
+	display: none;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	right: 20px;
+	z-index: 2;
+}
+
+#ingadd tbody tr td img {
+	height: 60px;
+	top: 0;
+	right: 20px;
+	z-index: 2;
+}
+
+#listaIngredientes li:hover img {
+	display: block;
+	padding: 10px;
+	background: #fff;
+	box-shadow: 0 0 5px 5px rgba(0, 0, 0, .2);
+	border-radius: 5px
+}
+
+#fundobrancopedido {
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+#divimgsup img{
+	border-radius: 5px;
+	height: 250px;
+	width: 100%;	
+}
+
+#pizzabanner {
+	height: 285px;
+	overflow: hidden;
+}
+
+#pizzabanner .bx-wrapper .bx-viewport {
+	box-shadow: none;
+	border: none;
+	left: 0;
+}
+
+#pizzabanner ul {
+	padding: 0;	
+	list-style: none;
+}
+
+#pizzabanner ul li img {
+	width: 100%;
+	height: 285px;
+}
+
+#ingpizza{
+	margin-top: 15px;
+	margin-right: 0;
+}
+
+#menuBemvindo {
+	display: none;
+}
+
+html.logado #menuBemvindo {
+	display: block;
+}
+
+html.logado #menuRegistro, html.logado #menuLogin {
+	display: none;
+}
+
+#massapizza.pizzapequena{
+	width: 40%;
+} 
+#massapizza.pizzamedia{
+	width: 60%;
+} 
+#massapizza.pizzagrande{
+	width: 80%;
+} 
+
+.fundobranco {
+	background-color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.container h1 {
+	padding: 10px 10px 10px 10px;
+}
+
+.fundobranco hr{
+	background-color: #27408B;
+	color: #27408B;
+	height: 2px;
+}
+
+.nav li a{
+	font-weight: bold;
+	color: #000;
+	font-family: "Arial", Times, serif;
+}
+
+.fundomenu{
+	background-color: #FFF;
+	border-radius: 5px;
+
+}
+
+div #menucp ul {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
+}
+
+#menucp {
+	padding-left: 0;
+}
+
+#menucp .nav>li>a:focus, #menucp .nav>li>a:hover{
+	background-color: #FF4500;
+}
+
+#imageminferior{
+	margin-top: 200px;
+}
+
+#msgnaologado {
+	margin-top: 25px;
+}
+
+#colunapedido {
+	padding: 0;
+}
+
+label.error.valid{
+	color: #008000;
+	padding-left: 4px;
+}
