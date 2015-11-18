@@ -1,4 +1,4 @@
-<?php function header_assets() { ?>
+Ôªø<?php function header_assets() { ?>
 <link href="lib/js/plugins/bxslider/jquery.bxslider.css" rel="stylesheet">
 <script src="lib/js/plugins/bxslider/jquery.bxslider.min.js"></script>
 <script src="lib/js/trocaimagempizza.js"></script>
@@ -20,7 +20,7 @@
 						<ul class="list-group" id="listaTamanho">
 							<li class="list-group-item" data-placement="bottom" title="Selecione o tamanho!"><strong>Selecione o tamanho da Pizza</strong></li>
 							<li class="list-group-item link"><a href="#" data-tam="g">Grande (5 Ingredientes)</a></li>
-							<li class="list-group-item link"><a href="#" data-tam="m">MÈdia (3 Ingredientes)</a></li>
+							<li class="list-group-item link"><a href="#" data-tam="m">M√©dia (3 Ingredientes)</a></li>
 							<li class="list-group-item link"><a href="#" data-tam="p">Pequena (2 Ingredientes)</a></li>	
 						</ul>
 					</div>
@@ -30,8 +30,8 @@
 						<?php						
 						$ingredientes = array('Tomate' => 'tomate.jpeg', 'Presunto' => 'presunto.jpg', 'Mussarela' => 'mussarela.png',
 											  'Frango' => 'frango.png', 'Bacon' => 'bacon.png', 'Azeitona' => 'azeitona.png', 'Cebola' => 'cebola.png',
-											  'Calabresa' => 'calabresa.png', 'Camar„o' => 'camarao.png', 'Carne Seca' => 'carneseca.jpg',
-											  'OrÈgano' => 'oregano.jpg', 'Picles' => 'picles.jpg', 'Piment„o' => 'pimentao.png', 'Champignon' => 'champignons.png'
+											  'Calabresa' => 'calabresa.png', 'Camar√£o' => 'camarao.png', 'Carne Seca' => 'carneseca.jpg',
+											  'Or√©gano' => 'oregano.jpg', 'Picles' => 'picles.jpg', 'Piment√£o' => 'pimentao.png', 'Champignon' => 'champignons.png'
 						);
 						//$banco = array(0 => array('nome' => 'Tomate', 'preco' => 2.50));
 						//foreach($ings as $ing) { $ing['nome']... }
@@ -43,32 +43,34 @@
 				</div>
 				
 				<div class="col-md-6" id="colunapedido" >
-					<div id="fundobrancopedido">
-						<center><img id="massapizza" src="lib/img/massa_pizza.png" width="70%" /></center>
-				        <h4>Sua pizza È: </h4>
-					
-						<h5> Grande </h5><br>
+					<form action="pagamento.php" method="post">
+						<div id="fundobrancopedido">
+							<center><img id="massapizza" src="lib/img/massa_pizza.png" width="70%" /></center>
+					        <h4>Sua pizza √©: </h4>
 						
-						<table class="table table-bordered" id="ingadd">
-							<thead>
-	  							<tr>
-	  								<th class="col-md-4">Ingrediente</th>
-	  								<th class="col-md-1">Imagem</th>
-	  								<th class="col-md-1">Remover</th>
-	  							</tr>
-	  						</thead>
-	  						<tbody>
-	
-	  						</tbody>
-						</table>
-					</div>
-					<div>
-						<?php if (isLogado()){?>	
-							<a href="pagamento.php" type="button" class="btn btn-primary btn-lg pull-right" style="margin-top:10px"><span class="glyphicon glyphicon-ok" ></span> Fechar pedido</a>
-						<?php } else {?>
-							<div id="msgnaologado" class="alert alert-info" role="alert"><strong>… necess·rio estar logado para fechar o pedido!</strong></div>
-						<?php };?>
-					</div>
+							<h5> Grande </h5><br>
+							
+							<table class="table table-bordered" id="ingadd">
+								<thead>
+		  							<tr>
+		  								<th class="col-md-4">Ingrediente</th>
+		  								<th class="col-md-1">Imagem</th>
+		  								<th class="col-md-1">Remover</th>
+		  							</tr>
+		  						</thead>
+		  						<tbody>
+		
+		  						</tbody>
+							</table>
+						</div>
+						<div>
+							<?php if (isLogado()){?>	
+								<button type="submit" class="btn btn-primary btn-lg pull-right" style="margin-top:10px"><span class="glyphicon glyphicon-ok" ></span> Fechar pedido</button>
+							<?php } else {?>
+								<div id="msgnaologado" class="alert alert-info" role="alert"><strong>√â necess√°rio estar logado para fechar o pedido!</strong></div>
+							<?php };?>
+						</div>
+					</form>
 				</div>
 
 			</div>

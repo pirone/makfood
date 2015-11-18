@@ -1,5 +1,10 @@
-<?php include("inc/cabecalho.php"); ?>
-			
+ï»¿<?php include("inc/cabecalho.php"); ?>
+<?php
+if (!isset($_POST['ing'])) {
+	header('Location: pedido-pizza.php');
+	die;
+}
+?>			
 						
 	<div class="container" id="fundobranco">
 		<div class="row">
@@ -16,15 +21,15 @@
 				<fieldset>
 				<legend>Pagamento</legend>
 				<div class="form-group">
-					<label class="col-sm-3 control-label" for="card-holder-name">Nome no cartão</label>
+					<label class="col-sm-3 control-label" for="card-holder-name">Nome no cartÃ£o</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Nome como escrito no cartão">
+					<input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Nome como escrito no cartÃ£o">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label" for="card-number">Número do cartão</label>
+					<label class="col-sm-3 control-label" for="card-number">NÃºmero do cartÃ£o</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" name="card-number" id="card-number" placeholder="Número do cartão">
+					<input type="text" class="form-control" name="card-number" id="card-number" placeholder="NÃºmero do cartÃ£o">
 					</div>
 				</div>
 				<div class="form-group">
@@ -33,7 +38,7 @@
 					<div class="row">
 						<div class="col-xs-3">
 						<select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
-							<option>Mês</option>
+							<option>MÃªs</option>
 							<option value="01">Jan (01)</option>
 							<option value="02">Fev (02)</option>
 							<option value="03">Mar (03)</option>
@@ -67,9 +72,9 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label" for="cvv">Códivo de verificação</label>
+					<label class="col-sm-3 control-label" for="cvv">CÃ³divo de verificaÃ§Ã£o</label>
 					<div class="col-sm-3">
-					<input type="text" class="form-control" name="cvv" id="cvv" placeholder="Código de Segurança">
+					<input type="text" class="form-control" name="cvv" id="cvv" placeholder="CÃ³digo de SeguranÃ§a">
 					</div>
 				</div>
 				<div class="form-group">
