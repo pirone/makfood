@@ -7,7 +7,7 @@ include_once 'lib/helpers/auth.php';
 <!DOCTYPE html>
 <html lang="en" class="<?php echo isLogado() ? 'logado' : ''; ?>">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MakFood</title>
@@ -40,10 +40,11 @@ include_once 'lib/helpers/auth.php';
 								aria-expanded="false">Monte seu pedido! <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="pedido-pizza.php">Pizza</a></li>
-									<!-- <li><a href="sanduiche.php">Sanduíche</a></li>-->
+									<!-- <li><a href="sanduiche.php">SanduÃ­che</a></li>-->
 								</ul> <!--<li><a href="#">Lojas</a></li> -->
-							
+							<?php if(isLogado()) { ?>
 							<li><a href="meusPedidos.php">Meus pedidos</a></li>
+							<?php } ?>
 
 						</ul>
 
@@ -85,7 +86,7 @@ include_once 'lib/helpers/auth.php';
 								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 							</button>
 							<h3 class="modal-title" id="modal-register-label">Cadastre-se</h3>
-							<p>Informe seus dados para realização de cadastro</p>
+							<p>Informe seus dados para realizaÃ§Ã£o de cadastro</p>
 						</div>
 
 						<div class="modal-body">
@@ -131,8 +132,8 @@ include_once 'lib/helpers/auth.php';
 
 
 								<div class="form-group has-feedback">
-									<label class="sr-only" for="endereco">Endereço completo</label>
-									<input name="endereco" placeholder="Endereço completo"
+									<label class="sr-only" for="endereco">EndereÃ§o completo</label>
+									<input name="endereco" placeholder="EndereÃ§o completo"
 										class="form-about-yourself form-control" id="endereco"></input>
 								</div>
 								<div class="form-group has-feedback">
@@ -158,8 +159,8 @@ include_once 'lib/helpers/auth.php';
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header" align="center">
-							<img class="img-circle" id="img_logo"
-								src="http://bootsnipp.com/img/logo.jpg">
+							<img class="" id="img_logo"
+								src="lib/img/logofundo.png">
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -175,7 +176,7 @@ include_once 'lib/helpers/auth.php';
 									<div id="div-login-msg">
 										<div id="icon-login-msg"
 											class="glyphicon glyphicon-chevron-right"></div>
-										<span id="text-login-msg">Digite seu usuário e senha.</span>
+										<span id="text-login-msg">Digite seu usuÃ¡rio e senha.</span>
 									</div>
 									<div class="form-group">
 										<input id="login_email" class="form-control" type="text" placeholder="Email" name="username" required>

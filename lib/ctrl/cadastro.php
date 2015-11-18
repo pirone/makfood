@@ -6,7 +6,7 @@ if (isset($_POST['cadastrar'])) {
 
 	$cadastro = $DB->query('
 			INSERT INTO usuario (email, senha, nome, sobrenome, endereco1, telefone)
-			VALUES (:login, :senha, :nome, :sobrenome, :endereco1, :telefoneSemMascara)
+			VALUES (:login, SHA1(:senha), :nome, :sobrenome, :endereco1, :telefoneSemMascara)
 		', array(
 			':login' => $_POST['login'],
 			':senha' => $_POST['senha'],
