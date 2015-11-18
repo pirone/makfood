@@ -1,11 +1,11 @@
-﻿<?php include("inc/cabecalho.php"); ?>
-<?php
+﻿<?php
 if (!isset($_POST['ing'])) {
 	header('Location: pedido-pizza.php');
 	die;
 }
-?>			
-						
+?>		
+<?php include("inc/cabecalho.php"); ?>
+							
 	<div class="container" id="fundobranco">
 		<div class="row">
 			<div class="col-md-12">

@@ -1,4 +1,4 @@
-<?php include 'inc/cabecalho.php'; ?>
+﻿<?php include 'inc/cabecalho.php'; ?>
 
 			
 		<div class="container" id="fundobranco">	
@@ -26,7 +26,7 @@
 				<div id="meusPedidos"><img src="lib/img/pizza6.png" width=20% height=auto; style="float:left; margin:0 20px 20px 0;"></img>
 					<h3>Data do pedido:</h3> <h4>04/10/2015</h4>
 					<h3>Tamanho:</h3> <h4>Grande</h4> 
-					<h3>Ingredientes:</h3> <h4>Carne + Mussarela + Or�gano</h4>
+					<h3>Ingredientes:</h3> <h4>Carne + Mussarela + Orégano</h4>
 					<h3>Valor Total:</h3> <h4>R$20,00</h4>
 				</div>
 				<a type="button" class="btn btn-primary btn-lg pull-right" href="pagamento.php"><span class="glyphicon glyphicon-shopping-cart" ></span> Pedir Novamente</a>
