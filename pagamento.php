@@ -1,5 +1,7 @@
 ﻿<?php
-if (!isset($_POST['ing'])) {
+if (isset($_GET['pid'])) {
+	// Logica de verificar o pedido no banco, se tem o mesmo ID de usuário do usuário logado e montá-lo (o pedido).
+} else if (!isset($_POST['ing'])) {
 	header('Location: pedido-pizza.php');
 	die;
 }
@@ -12,8 +14,17 @@ if (!isset($_POST['ing'])) {
 				<div class="col-md-3" id="fotopedido">
 					<img src="lib/img/pizza-b.png"></img>
 				</div>
-				<div class="col-md-9">
-					<?php $ingpizza = $_POST['ing']; foreach ($ingpizza as $pos => $valor) { echo ",".$valor;} ?>
+				<div class="col-md-9" id="dadosPedido">
+					<h3>Tamanho:</h3>
+					<h4></h4>
+					<h3>Ingredientes:</h3>
+					<?php
+					$imgingred = $_POST['imging'];
+					$ingred = $_POST['ing'];
+					foreach ($imgingred as $posimg => $imgsrc) {
+						echo '<img src="'.$imgsrc.'" title=""/>';
+					}
+					?>
 				</div>
 			</div>
 		</div>

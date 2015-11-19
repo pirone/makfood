@@ -18,7 +18,7 @@
 				<div class="col-md-6">
 					<div  id="massa">
 						<ul class="list-group" id="listaTamanho">
-							<li class="list-group-item" data-placement="bottom" title="Selecione o tamanho!"><strong>Selecione o tamanho da Pizza</strong></li>
+							<li class="list-group-item" data-placement="bottom" data-toggle="tooltip" data-trigger="manual" title="Selecione o tamanho!"><strong>Selecione o tamanho da Pizza</strong></li>
 							<li class="list-group-item link"><a href="#" data-tam="g">Grande (5 Ingredientes)</a></li>
 							<li class="list-group-item link"><a href="#" data-tam="m">Média (3 Ingredientes)</a></li>
 							<li class="list-group-item link"><a href="#" data-tam="p">Pequena (2 Ingredientes)</a></li>	
@@ -28,15 +28,11 @@
 					<ul class="list-group disabled" id="listaIngredientes">
 						<li class="list-group-item"><strong>Selecione os Ingredientes:</strong></li>
 						<?php						
-						$ingredientes = array('Tomate' => 'tomate.jpeg', 'Presunto' => 'presunto.jpg', 'Mussarela' => 'mussarela.png',
-											  'Frango' => 'frango.png', 'Bacon' => 'bacon.png', 'Azeitona' => 'azeitona.png', 'Cebola' => 'cebola.png',
-											  'Calabresa' => 'calabresa.png', 'Camarão' => 'camarao.png', 'Carne Seca' => 'carneseca.jpg',
-											  'Orégano' => 'oregano.jpg', 'Picles' => 'picles.jpg', 'Pimentão' => 'pimentao.png', 'Champignon' => 'champignons.png'
-						);
+						$ingredientes = include 'lib/db/ingredientes.php';
 						//$banco = array(0 => array('nome' => 'Tomate', 'preco' => 2.50));
 						//foreach($ings as $ing) { $ing['nome']... }
-						foreach ($ingredientes as $nome => $imagem ) {
-							echo '<li class="list-group-item"><span>'.$nome.'</span> <img src="lib/img/'.$imagem.'" /></li>'."\n";
+						foreach ($ingredientes as $ingrediente) {
+							echo '<li class="list-group-item"><span>'.$ingrediente['id'].'</span> <img src="lib/img/'.$imagem.'" /></li>'."\n";
 						}
 						?>
 					</ul>
@@ -48,7 +44,10 @@
 							<center><img id="massapizza" src="lib/img/massa_pizza.png" width="70%" /></center>
 					        <h4>Sua pizza é: </h4>
 						
-							<h5> Grande </h5><br>
+							<h5 id="tampizza">
+								<span></span>
+								<input type="hidden" name="tampizza"/>
+							</h5>
 							
 							<table class="table table-bordered" id="ingadd">
 								<thead>

@@ -205,3 +205,21 @@ label.error.valid{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+#dadosPedido img{
+	height: 70px;
+	border-style: solid;
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-left-width: 2px;
+	border-color: #9C9C9C;
+	border-radius: 10px;
+	margin: 3px;
+}
+
+#dadosPedido h3{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 20px;
+	color: #FF9509;
+}
