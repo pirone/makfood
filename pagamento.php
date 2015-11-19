@@ -9,8 +9,11 @@ if (!isset($_POST['ing'])) {
 	<div class="container" id="fundobranco">
 		<div class="row">
 			<div class="col-md-12">
-				<div class=col-md-5 id="fotopedido">
+				<div class="col-md-3" id="fotopedido">
 					<img src="lib/img/pizza-b.png"></img>
+				</div>
+				<div class="col-md-9">
+					<?php $ingpizza = $_POST['ing']; foreach ($ingpizza as $pos => $valor) { echo ",".$valor;} ?>
 				</div>
 			</div>
 		</div>

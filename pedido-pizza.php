@@ -65,7 +65,7 @@
 						</div>
 						<div>
 							<?php if (isLogado()){?>	
-								<button type="submit" class="btn btn-primary btn-lg pull-right" style="margin-top:10px"><span class="glyphicon glyphicon-ok" ></span> Fechar pedido</button>
+								<button type="submit" name="fechaPedido" class="btn btn-primary btn-lg pull-right" style="margin-top:10px"><span class="glyphicon glyphicon-ok" ></span> Fechar pedido</button>
 							<?php } else {?>
 								<div id="msgnaologado" class="alert alert-info" role="alert"><strong>É necessário estar logado para fechar o pedido!</strong></div>
 							<?php };?>
