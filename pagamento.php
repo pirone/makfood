@@ -16,13 +16,18 @@ if (isset($_GET['pid'])) {
 				</div>
 				<div class="col-md-9" id="dadosPedido">
 					<h3>Tamanho:</h3>
-					<h4></h4>
+					<span><?php 
+					$tamanho = $_POST['tampizza'];
+					echo $tamanho;
+					?>
+					</span>
+					
 					<h3>Ingredientes:</h3>
 					<?php
 					$imgingred = $_POST['imging'];
 					$ingred = $_POST['ing'];
 					foreach ($imgingred as $posimg => $imgsrc) {
-						echo '<img src="'.$imgsrc.'" title=""/>';
+						echo '<img src="'.$imgsrc.'" title="'.ingred.'"/>';
 					}
 					?>
 				</div>

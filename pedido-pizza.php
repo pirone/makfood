@@ -32,7 +32,7 @@
 						//$banco = array(0 => array('nome' => 'Tomate', 'preco' => 2.50));
 						//foreach($ings as $ing) { $ing['nome']... }
 						foreach ($ingredientes as $ingrediente) {
-							echo '<li class="list-group-item"><span>'.$ingrediente['id'].'</span> <img src="lib/img/'.$imagem.'" /></li>'."\n";
+							echo '<li class="list-group-item"><span>'.$ingrediente['nome'].'</span> <img src="lib/img/'.$ingrediente['imagem'].'" /></li>'."\n";
 						}
 						?>
 					</ul>
@@ -52,8 +52,9 @@
 							<table class="table table-bordered" id="ingadd">
 								<thead>
 		  							<tr>
-		  								<th class="col-md-4">Ingrediente</th>
+		  								<th class="col-md-3">Ingrediente</th>
 		  								<th class="col-md-1">Imagem</th>
+		  								<th class="col-md-1">Valor</th>
 		  								<th class="col-md-1">Remover</th>
 		  							</tr>
 		  						</thead>
@@ -61,24 +62,21 @@
 		
 		  						</tbody>
 							</table>
-						</div>
-						<div>
-							<?php if (isLogado()){?>	
-								<button type="submit" name="fechaPedido" class="btn btn-primary btn-lg pull-right" style="margin-top:10px"><span class="glyphicon glyphicon-ok" ></span> Fechar pedido</button>
-							<?php } else {?>
-								<div id="msgnaologado" class="alert alert-info" role="alert"><strong>É necessário estar logado para fechar o pedido!</strong></div>
-							<?php };?>
+							<div id="total">
+								<h2>Total:</h2>
+								<span>R$ 0,00</span>
+							</div>
+							<div>
+								<?php if (isLogado()){?>	
+									<button type="submit" name="fechaPedido" class="btn btn-primary btn-lg pull-right" style="margin-top:10px"><span class="glyphicon glyphicon-ok" ></span> Fechar pedido</button>
+								<?php } else {?>
+									<div id="msgnaologado" class="alert alert-info" role="alert"><strong>É necessário estar logado para fechar o pedido!</strong></div>
+								<?php };?>
+							</div>
 						</div>
 					</form>
 				</div>
-
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-				
-				</div>
-			</div>
-
 	</div>
 
 <script type="text/javascript" src="lib/js/pizza.js"></script>	
