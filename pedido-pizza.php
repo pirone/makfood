@@ -13,7 +13,6 @@
 					<?php } ?>
 				</ul>
 			</div>
-			
 			<div class="row" id="ingpizza">
 				<div class="col-md-6">
 					<div  id="massa">
@@ -37,9 +36,8 @@
 						?>
 					</ul>
 				</div>
-				
 				<div class="col-md-6" id="colunapedido" >
-					<form action="pagamento.php" method="post">
+					<form action="lib/ctrl/fechaPedido.php" method="post">
 						<div id="fundobrancopedido">
 							<center><img id="massapizza" src="lib/img/massa_pizza.png" width="70%" /></center>
 					        <h4>Sua pizza é: </h4>

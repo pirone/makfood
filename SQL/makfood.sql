@@ -1,144 +1,137 @@
--- phpMyAdmin SQL Dump
--- version 4.4.14
--- http://www.phpmyadmin.net
+CREATE DATABASE  IF NOT EXISTS `makfood` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `makfood`;
+-- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
--- Host: 127.0.0.1
--- Generation Time: 20-Nov-2015 às 05:48
--- Versão do servidor: 5.6.26
--- PHP Version: 5.5.28
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: makfood
+-- ------------------------------------------------------
+-- Server version	5.6.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `makfood`
+-- Table structure for table `ingredientes`
 --
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `ingredientes`
---
-
-CREATE TABLE IF NOT EXISTS `ingredientes` (
-  `idingrediente` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `ingredientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ingredientes` (
+  `idingrediente` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome_ingred` varchar(60) DEFAULT NULL,
-  `preco_ingred` varchar(10) DEFAULT NULL
+  `preco_ingred` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`idingrediente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estrutura da tabela `pedidos`
+-- Dumping data for table `ingredientes`
 --
 
-CREATE TABLE IF NOT EXISTS `pedidos` (
+LOCK TABLES `ingredientes` WRITE;
+/*!40000 ALTER TABLE `ingredientes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ingredientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido_ingredientes`
+--
+
+DROP TABLE IF EXISTS `pedido_ingredientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedido_ingredientes` (
+  `idpedidoingred` int(11) NOT NULL AUTO_INCREMENT,
   `idpedido` int(11) NOT NULL,
+  `nomeingred` varchar(50) NOT NULL,
+  PRIMARY KEY (`idpedidoingred`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido_ingredientes`
+--
+
+LOCK TABLES `pedido_ingredientes` WRITE;
+/*!40000 ALTER TABLE `pedido_ingredientes` DISABLE KEYS */;
+INSERT INTO `pedido_ingredientes` VALUES (1,2,'Mussarela'),(2,2,'Frango'),(3,2,'Bacon'),(4,3,'Frango'),(5,3,'Azeitona'),(6,3,'Cebola'),(7,4,'Tomate'),(8,4,'Mussarela'),(9,4,'Calabresa'),(10,4,'Azeitona'),(11,5,'Tomate'),(12,5,'Mussarela'),(13,6,'Mussarela'),(14,6,'Frango'),(15,6,'Azeitona');
+/*!40000 ALTER TABLE `pedido_ingredientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedidos`
+--
+
+DROP TABLE IF EXISTS `pedidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedidos` (
+  `idpedido` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` int(11) NOT NULL,
   `tampizza` varchar(10) DEFAULT NULL,
   `preco` varchar(20) DEFAULT NULL,
-  `pago` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabela de registro de pedidos';
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `pedido_ingredientes`
---
-
-CREATE TABLE IF NOT EXISTS `pedido_ingredientes` (
-  `idpedido` int(11) NOT NULL,
-  `idingrediente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `pago` varchar(45) NOT NULL,
+  PRIMARY KEY (`idpedido`),
+  KEY `idusuario_idx` (`idusuario`),
+  CONSTRAINT `idusuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Tabela de registro de pedidos';
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estrutura da tabela `usuario`
+-- Dumping data for table `pedidos`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `idusuario` int(11) NOT NULL,
+LOCK TABLES `pedidos` WRITE;
+/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+INSERT INTO `pedidos` VALUES (2,38,'Grande','','N'),(3,39,'Grande','','N'),(4,39,'Grande','','N'),(5,39,'Pequena','','N'),(6,39,'Média','','N');
+/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuario` (
+  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sobrenome` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `senha` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `endereco1` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `telefone` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `telefone` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idusuario`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`idusuario`, `nome`, `sobrenome`, `senha`, `email`, `endereco1`, `telefone`) VALUES
-(30, 'Putz', 'Arrop', '7c4a8d09ca', 'porra@gmail.com', 'Putz', '99999999999'),
-(31, 'teste endereco', 'Teste', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'testelogin@gmail.com', 'teste endereco', '99999999999'),
-(32, 'Rua 6', 'TESTE', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ph@gmail.com', 'Rua 6', '99999999999'),
-(34, '123', '123', '7c4a8d09ca3762af61e59520943dc26494f8941b', '123@gmail.com', '123', '12312312312'),
-(35, 'Teste', 'Teste', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'teste@gmail.com', 'TEste', '12345678988'),
-(36, 'LeroPedro', 'Lero', '123456', 'lero@gmail.com', '123456', '12345698798'),
-(37, 'PEDRO', 'PEREIRA', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pedrohenriquedf@gmail.com', 'RUA 6,CHAC 243,CASA 21', '55613435213');
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (38,'Teste','Teste','7c4a8d09ca3762af61e59520943dc26494f8941b','teste@gmail.com','123456','12345645646'),(39,'Lero','Lero','7c4a8d09ca3762af61e59520943dc26494f8941b','lero@gmail.com','Lero','99999999999');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `ingredientes`
---
-ALTER TABLE `ingredientes`
-  ADD PRIMARY KEY (`idingrediente`);
-
---
--- Indexes for table `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`idpedido`),
-  ADD KEY `idusuario_idx` (`idusuario`);
-
---
--- Indexes for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idusuario`),
-  ADD UNIQUE KEY `email_UNIQUE` (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `ingredientes`
---
-ALTER TABLE `ingredientes`
-  MODIFY `idingrediente` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD CONSTRAINT `idusuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-11-20 18:33:40
