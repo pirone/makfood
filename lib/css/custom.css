@@ -51,7 +51,7 @@ label.error {
 	height: 100px;
 	position: absolute;
 	top: 0;
-	right: 20px;
+	right: 80px;
 	z-index: 2;
 }
 
@@ -228,5 +228,9 @@ label.error.valid{
 #divtotalpizza{
 	padding-left: 0px;
 	padding-right: 0px;
+}
+
+#totalpizza{
+	text-align: right;
 }
 

@@ -31,7 +31,7 @@
 						//$banco = array(0 => array('nome' => 'Tomate', 'preco' => 2.50));
 						//foreach($ings as $ing) { $ing['nome']... }
 						foreach ($ingredientes as $ingrediente) {
-							echo '<li class="list-group-item"><span>'.$ingrediente['nome'].'</span> <img src="lib/img/'.$ingrediente['imagem'].'" /></li>'."\n";
+							echo '<li class="list-group-item"><span>'.$ingrediente['nome'].'</span> <img src="lib/img/'.$ingrediente['imagem'].'" /><span class="badge">R$ '.$ingrediente['preco'].'</span></li>'."\n";
 						}
 						?>
 					</ul>
@@ -66,7 +66,7 @@
 								<h2>Total:</h2>
 								<label class="col-md-8 control-label" for="total">R$</label>
 								<div class="col-md-4" id="divtotalpizza">
-									<input class="form-control" disabled="disabled" name="total" value=""></input>
+									<input class="form-control" disabled="disabled" name="total" id="totalpizza"value=""></input>
 								</div>
 							</div>
 							<div class="col-md-12" align="right" id="fecharPedido">
