@@ -1,6 +1,7 @@
 ﻿<?php
 session_start();
 include 'lib/helpers/auth.php';
+include 'lib/helpers/consultasSql.php';
 if (isset($_GET['idpedido'])) {
 	include_once 'lib/helpers/db.php';
 	
@@ -13,6 +14,7 @@ if (isset($_GET['idpedido'])) {
 			));
 	$usuarioRetornadoLinhas = $verificaUsuario->fetch(PDO::FETCH_NUM);
 	$usuarioRetornado = $usuarioRetornadoLinhas['0'];
+
 	// Logica de verificar o pedido no banco, se tem o mesmo ID de usuário do usuário logado e montá-lo (o pedido).
 } /*else if (!isset($_POST['ing'])) {
 	header('Location: pedido-pizza.php');
@@ -20,7 +22,7 @@ if (isset($_GET['idpedido'])) {
 ?>		
 <?php include("inc/cabecalho.php"); ?>
 							
-	<div class="container" id="fundobranco">
+	<div class="container fundobranco">
 		<?php if ($usuarioRetornado==$_SESSION['idusuario']){?>
 			<div class="row">
 				<div class="col-md-12">
@@ -50,9 +52,11 @@ if (isset($_GET['idpedido'])) {
 							));
 						$ingredLinha = $ingredQuery->fetchAll(PDO::FETCH_NUM);
 						//$ingred = $ingredLinha['0'];
+						global $imging;
 						foreach ($ingredLinha as $colunaing => $linhaing) {
-							echo $linhaing['0'];
+							echo '<img src="'.$imging.'">';
 						}
+
 						?>
 					</div>
 				</div>
@@ -63,6 +67,13 @@ if (isset($_GET['idpedido'])) {
 					<form class="form-horizontal" role="form">
 					<fieldset>
 					<legend>Pagamento</legend>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="enderecoEntrega">Endereço de Entrega</label>
+						<div class="col-sm-9">
+						<input type="text" class="form-control" name="enderecoEntrega" value="<?php carregaEndereco()?>"></input>
+						</div>
+					</div>
+					<hr>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="card-holder-name">Nome no cartão</label>
 						<div class="col-sm-9">

@@ -132,7 +132,8 @@ html.logado #menuRegistro, html.logado #menuLogin {
 
 .fundobranco {
 	background-color: #FFFFFF;
-	border-radius: 5px;
+	border-radius: 10px;
+	padding: 15px;
 }
 
 .container h1 {
@@ -140,9 +141,8 @@ html.logado #menuRegistro, html.logado #menuLogin {
 }
 
 .fundobranco hr{
-	background-color: #27408B;
-	color: #27408B;
-	height: 2px;
+	background-color: #e5e5e5;
+	height: 1.4px;
 }
 
 .nav li a{
@@ -179,9 +179,6 @@ div #menucp ul {
 	margin-top: 25px;
 }
 
-#colunapedido {
-	padding: 0;
-}
 
 label.error.valid{
 	color: #008000;
@@ -223,3 +220,13 @@ label.error.valid{
 	font-size: 20px;
 	color: #FF9509;
 }
+
+#fecharPedido {
+	margin-top: 10px;
+}
+
+#divtotalpizza{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+

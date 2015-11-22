@@ -36,10 +36,12 @@
 						?>
 					</ul>
 				</div>
-				<div class="col-md-6" id="colunapedido" >
+				<div class="col-md-6 fundobranco" id="colunapedido" >
 					<form action="lib/ctrl/fechaPedido.php" method="post">
-						<div id="fundobrancopedido">
-							<center><img id="massapizza" src="lib/img/massa_pizza.png" width="70%" /></center>
+						<div>
+							<div align="center">
+								<img id="massapizza" src="lib/img/massa_pizza.png" width="70%" />
+							</div>
 					        <h4>Sua pizza é: </h4>
 						
 							<h5 id="tampizza">
@@ -60,13 +62,16 @@
 		
 		  						</tbody>
 							</table>
-							<div id="total">
+							<div align="right" class="col-md-12 form-group" id="total">
 								<h2>Total:</h2>
-								<span>R$ 0,00</span>
+								<label class="col-md-8 control-label" for="total">R$</label>
+								<div class="col-md-4" id="divtotalpizza">
+									<input class="form-control" disabled="disabled" name="total" value=""></input>
+								</div>
 							</div>
-							<div>
+							<div class="col-md-12" align="right" id="fecharPedido">
 								<?php if (isLogado()){?>	
-									<button type="submit" name="fechaPedido" class="btn btn-primary btn-lg pull-right" style="margin-top:10px"><span class="glyphicon glyphicon-ok" ></span> Fechar pedido</button>
+									<button type="submit" name="fechaPedido" class="btn btn-primary btn-lg" style="margin-top:10px"><span class="glyphicon glyphicon-ok" ></span> Fechar pedido</button>
 								<?php } else {?>
 									<div id="msgnaologado" class="alert alert-info" role="alert"><strong>É necessário estar logado para fechar o pedido!</strong></div>
 								<?php };?>

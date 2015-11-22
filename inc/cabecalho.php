@@ -59,7 +59,7 @@ include_once 'lib/helpers/auth.php';
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bem vindo! <?php get_username(); ?>
 								<span class="caret" data-toggle="dropdown"></span></a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-									 	<li><a href="home.php">Painel de Controle</a></li>
+									 	<li><a href="cpanel.php">Painel de Controle</a></li>
 									    <li><a href="lib/ctrl/logout.php">Logout</a></li>
 									  </ul>
 								 </li>

@@ -38,6 +38,28 @@ if(isset($_POST['fechaPedido'])){
 				));
 	}
 	
+	$imging="";
+	$nomeing="Tomate";
+	function loadImagem(){
+			global $imging;
+			
+			$imging="lib/img/Tomate.jpeg";
+
+	}
+	
+	loadImagem();
+	
+/*	$imgingred = $_POST['imging'];
+	foreach ($imgingred as $posimg => $localimg) {
+		$registraImg = $DB->query('
+			INSERT INTO pedido_ingredientes (imgingred)
+			VALUES (:imgingred) WHERE idpedido = :idpedido',
+				array(
+						':imgingred' => $localimg,
+						':idpedido' => $ultimoPedido,
+				));
+	}*/
+	
 	header('Location: ../../pagamento.php?idpedido='.$ultimoPedido);
 	
 	
