@@ -133,7 +133,7 @@ if (isset($_GET['idpedido'])) {
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-9">
-						<button type="button" class="btn btn-default">Cancelar</button>
+						<a href="pedido-pizza.php" type="button" class="btn btn-default">Cancelar</a>
 						<button type="button" class="btn btn-success">Pagar agora</button>
 						</div>
 					</div>

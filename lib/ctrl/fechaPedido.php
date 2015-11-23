@@ -13,7 +13,7 @@ if(isset($_POST['fechaPedido'])){
 			array(
 				':idusuario' => $_SESSION['idusuario'],
 				':tampizza' => $_POST['tampizza'],
-				':preco' => '',
+				':preco' => $_POST['total'],
 				':pago' => 'N',		
 			));
 	

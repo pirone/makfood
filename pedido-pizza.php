@@ -15,17 +15,23 @@
 			</div>
 			<div class="row" id="ingpizza">
 				<div class="col-md-6">
-					<div  id="massa">
+					<div id="massa">
 						<ul class="list-group" id="listaTamanho">
-							<li class="list-group-item" data-placement="bottom" data-toggle="tooltip" data-trigger="manual" title="Selecione o tamanho!"><strong>Selecione o tamanho da Pizza</strong></li>
-							<li class="list-group-item link"><a href="#" data-tam="g">Grande (5 Ingredientes)</a></li>
-							<li class="list-group-item link"><a href="#" data-tam="m">Média (3 Ingredientes)</a></li>
-							<li class="list-group-item link"><a href="#" data-tam="p">Pequena (2 Ingredientes)</a></li>	
+							<li class="list-group-item disabled" data-placement="bottom" data-toggle="tooltip" data-trigger="manual" title="Selecione o tamanho!"><strong>Selecione o tamanho da Pizza</strong></li>
+							<li class="list-group-item" data-tam="g">Grande (5 Ingredientes)
+								<span class="badge">R$ 10,00</span>
+							</li>
+							<li class="list-group-item" data-tam="m">Média (3 Ingredientes)
+								<span class="badge">R$ 7,00</span>
+							</li>
+							<li class="list-group-item" data-tam="p">Pequena (2 Ingredientes)
+								<span class="badge">R$ 4,00</span>
+							</li>	
 						</ul>
 					</div>
 					
-					<ul class="list-group disabled" id="listaIngredientes">
-						<li class="list-group-item"><strong>Selecione os Ingredientes:</strong></li>
+					<ul class="list-group" id="listaIngredientes">
+						<li class="list-group-item disabled"><strong>Selecione os Ingredientes:</strong></li>
 						<?php						
 						$ingredientes = include 'lib/db/ingredientes.php';
 						//$banco = array(0 => array('nome' => 'Tomate', 'preco' => 2.50));
@@ -42,13 +48,20 @@
 							<div align="center">
 								<img id="massapizza" src="lib/img/massa_pizza.png" width="70%" />
 							</div>
-					        <h4>Sua pizza é: </h4>
-						
-							<h5 id="tampizza">
-								<span></span>
-								<input type="hidden" name="tampizza"/>
-							</h5>
 							
+							<table class="table table-striped" id="tampizza">
+								<thead>
+									<tr>
+										<th class="col-md-5">Sua pizza é:</th>
+										<th class="col-md-1">Valor</th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								
+								</tbody>
+							</table>
+
 							<table class="table table-bordered" id="ingadd">
 								<thead>
 		  							<tr>
@@ -62,11 +75,12 @@
 		
 		  						</tbody>
 							</table>
+							<hr>
 							<div align="right" class="col-md-12 form-group" id="total">
 								<h2>Total:</h2>
 								<label class="col-md-8 control-label" for="total">R$</label>
 								<div class="col-md-4" id="divtotalpizza">
-									<input class="form-control" disabled="disabled" name="total" id="totalpizza"value=""></input>
+									<input class="form-control" name="total" id="totalpizza" value="" readonly="readonly"/>
 								</div>
 							</div>
 							<div class="col-md-12" align="right" id="fecharPedido">

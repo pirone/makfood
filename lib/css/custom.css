@@ -27,8 +27,8 @@ label.error {
 	font-size: 85%;
 }
 
-#listaTamanho li.link {
-	padding: 0;
+#listaTamanho li {
+	cursor: pointer;
 }
 
 #listaTamanho li.link a {
@@ -234,3 +234,13 @@ label.error.valid{
 	text-align: right;
 }
 
+#listaTamanho li+.active {
+	background-color: #DABE0E;
+	border-color: #000;
+	color: #000;
+	font-weight: bold;
+}
+
+#listaIngredientes li+.active {
+	background-color: #FF1717;
+}
