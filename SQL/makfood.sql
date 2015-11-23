@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `makfood` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `makfood`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: localhost    Database: makfood
@@ -25,10 +23,10 @@ DROP TABLE IF EXISTS `ingredientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ingredientes` (
-  `idingrediente` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nome_ingred` varchar(60) DEFAULT NULL,
-  `preco_ingred` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`idingrediente`)
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(60) DEFAULT NULL,
+  `preco` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,31 +40,6 @@ LOCK TABLES `ingredientes` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `pedido_ingredientes`
---
-
-DROP TABLE IF EXISTS `pedido_ingredientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pedido_ingredientes` (
-  `idpedidoingred` int(11) NOT NULL AUTO_INCREMENT,
-  `idpedido` int(11) NOT NULL,
-  `nomeingred` varchar(50) NOT NULL,
-  PRIMARY KEY (`idpedidoingred`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pedido_ingredientes`
---
-
-LOCK TABLES `pedido_ingredientes` WRITE;
-/*!40000 ALTER TABLE `pedido_ingredientes` DISABLE KEYS */;
-INSERT INTO `pedido_ingredientes` VALUES (1,2,'Mussarela'),(2,2,'Frango'),(3,2,'Bacon'),(4,3,'Frango'),(5,3,'Azeitona'),(6,3,'Cebola'),(7,4,'Tomate'),(8,4,'Mussarela'),(9,4,'Calabresa'),(10,4,'Azeitona'),(11,5,'Tomate'),(12,5,'Mussarela'),(13,6,'Mussarela'),(14,6,'Frango'),(15,6,'Azeitona');
-/*!40000 ALTER TABLE `pedido_ingredientes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `pedidos`
 --
 
@@ -74,15 +47,15 @@ DROP TABLE IF EXISTS `pedidos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pedidos` (
-  `idpedido` int(11) NOT NULL AUTO_INCREMENT,
-  `idusuario` int(11) NOT NULL,
-  `tampizza` varchar(10) DEFAULT NULL,
-  `preco` varchar(20) DEFAULT NULL,
-  `pago` varchar(45) NOT NULL,
-  PRIMARY KEY (`idpedido`),
-  KEY `idusuario_idx` (`idusuario`),
-  CONSTRAINT `idusuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Tabela de registro de pedidos';
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` int(11) NOT NULL,
+  `tampizza` varchar(10) NOT NULL,
+  `preco` decimal(5,2) NOT NULL DEFAULT '0.00',
+  `pago` enum('S','N') NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`id`),
+  KEY `idusuario_idx` (`usuario`),
+  CONSTRAINT `usuario` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='Tabela de registro de pedidos';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,8 +64,33 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (2,38,'Grande','','N'),(3,39,'Grande','','N'),(4,39,'Grande','','N'),(5,39,'Pequena','','N'),(6,39,'Média','','N');
+INSERT INTO `pedidos` VALUES (2,38,'Grande',0.00,'N'),(3,39,'Grande',0.00,'N'),(4,39,'Grande',0.00,'N'),(5,39,'Pequena',0.00,'N'),(6,39,'Média',0.00,'N'),(7,38,'Grande',16.50,'N'),(8,38,'Grande',17.50,'N'),(9,38,'Grande',19.50,'N'),(10,38,'Pequena',7.50,'N'),(11,38,'Pequena',7.50,'N'),(12,38,'Pequena',7.50,'N'),(13,38,'Pequena',7.50,'N'),(14,38,'Pequena',7.50,'N'),(15,38,'Pequena',7.50,'N'),(16,38,'Pequena',7.50,'N'),(17,38,'Pequena',7.50,'N');
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedidos_ingredientes`
+--
+
+DROP TABLE IF EXISTS `pedidos_ingredientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedidos_ingredientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pedido` int(11) NOT NULL,
+  `ingrediente` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedidos_ingredientes`
+--
+
+LOCK TABLES `pedidos_ingredientes` WRITE;
+/*!40000 ALTER TABLE `pedidos_ingredientes` DISABLE KEYS */;
+INSERT INTO `pedidos_ingredientes` VALUES (1,2,'Mussarela'),(2,2,'Frango'),(3,2,'Bacon'),(4,3,'Frango'),(5,3,'Azeitona'),(6,3,'Cebola'),(7,4,'Tomate'),(8,4,'Mussarela'),(9,4,'Calabresa'),(10,4,'Azeitona'),(11,5,'Tomate'),(12,5,'Mussarela'),(13,6,'Mussarela'),(14,6,'Frango'),(15,6,'Azeitona'),(16,7,'Frango'),(17,7,'Cebola'),(18,7,'Carne Seca'),(19,8,'Tomate'),(20,8,'Presunto'),(21,8,'Bacon'),(22,8,'Cebola'),(23,9,'Tomate'),(24,9,'Presunto'),(25,9,'Mussarela'),(26,9,'Bacon'),(27,9,'Azeitona'),(28,17,'Tomate'),(29,17,'Presunto');
+/*!40000 ALTER TABLE `pedidos_ingredientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -103,16 +101,16 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
-  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `nome` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sobrenome` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `senha` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `endereco1` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `telefone` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`idusuario`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +119,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (38,'Teste','Teste','7c4a8d09ca3762af61e59520943dc26494f8941b','teste@gmail.com','123456','12345645646'),(39,'Lero','Lero','7c4a8d09ca3762af61e59520943dc26494f8941b','lero@gmail.com','Lero','99999999999');
+INSERT INTO `usuario` VALUES (38,'Pedro','','7c4a8d09ca3762af61e59520943dc26494f8941b','teste@gmail.com','Rua 7','12345645646'),(39,'Lero','Lero','7c4a8d09ca3762af61e59520943dc26494f8941b','lero@gmail.com','Lero','99999999999');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -134,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-20 18:33:40
+-- Dump completed on 2015-11-23 18:30:38

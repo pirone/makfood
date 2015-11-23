@@ -1,69 +1,37 @@
 <?php
-session_start();
+session_start ();
 include_once '../helpers/auth.php';
 
-if(isset($_POST['fechaPedido'])){
+if (isset ( $_POST ['fechaPedido'] )) {
 	include_once '../helpers/db.php';
 	
-	$DB = new DB('localhost', 'root', '', 'makfood');
+	$DB = new DB ( 'localhost', 'root', '', 'makfood' );
 	
-	$registraPedido = $DB->query('
-			INSERT INTO pedidos (idusuario,tampizza,preco,pago)
-			VALUES (:idusuario,:tampizza,:preco,:pago)', 
-			array(
-				':idusuario' => $_SESSION['idusuario'],
-				':tampizza' => $_POST['tampizza'],
-				':preco' => $_POST['total'],
-				':pago' => 'N',		
-			));
+	$DB->query ( '
+			INSERT INTO pedidos (usuario, tampizza, preco)
+			VALUES (:usuario, :tampizza, :preco)', array (
+			':usuario' => $_SESSION ['idusuario'],
+			':tampizza' => $_POST ['tampizza'],
+			':preco' => $_POST ['total'] 
+	) );
 	
-	$selecLastPedido = $DB->query('
-			SELECT MAX(idpedido) FROM pedidos WHERE idusuario = :idusuario', 
-			array(
-				':idusuario' => $_SESSION['idusuario'],	
-			));
-	$ultimoPedidoLinha = $selecLastPedido->fetch(PDO::FETCH_NUM);
-	$ultimoPedido = $ultimoPedidoLinha['0'];
-	echo $ultimoPedido;
+	$ultimoPedido = $DB->query ( '
+			SELECT id FROM pedidos WHERE usuario = :usuario ORDER BY id DESC LIMIT 1', array (
+			':usuario' => $_SESSION ['idusuario'] 
+	) )->fetch ();
 	
-	$ingred = $_POST['ing'];
-	foreach ($ingred as $posing => $nomeing) {
-		$registraIngred = $DB->query('
-			INSERT INTO pedido_ingredientes (idpedido,nomeingred)
-			VALUES (:idpedido,:nomeingred)',
-				array(
-						':idpedido' => $ultimoPedido,
-						':nomeingred' => $nomeing,
-		
-				));
+	$ingred = $_POST ['ing'];
+	foreach ( $ingred as $posing => $nomeing ) {
+		$registraIngred = $DB->query ( '
+			INSERT INTO pedidos_ingredientes (pedido, ingrediente)
+			VALUES (:pedido, :ingrediente)', array (
+				':pedido' => $ultimoPedido ['id'],
+				':ingrediente' => $nomeing 
+		) );
 	}
 	
-	$imging="";
-	$nomeing="Tomate";
-	function loadImagem(){
-			global $imging;
-			
-			$imging="lib/img/Tomate.jpeg";
-
-	}
-	
-	loadImagem();
-	
-/*	$imgingred = $_POST['imging'];
-	foreach ($imgingred as $posimg => $localimg) {
-		$registraImg = $DB->query('
-			INSERT INTO pedido_ingredientes (imgingred)
-			VALUES (:imgingred) WHERE idpedido = :idpedido',
-				array(
-						':imgingred' => $localimg,
-						':idpedido' => $ultimoPedido,
-				));
-	}*/
-	
-	header('Location: ../../pagamento.php?idpedido='.$ultimoPedido);
-	
-	
-	
+	header ( 'Location: ../../pagamento.php?idpedido=' . $ultimoPedido ['id'] );
+	die ();
 }
-	
+
 ?>

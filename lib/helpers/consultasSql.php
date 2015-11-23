@@ -4,13 +4,11 @@
 
 	$DB = new DB('localhost', 'root', '', 'makfood');
 
-	$carregaEndereco = $DB->query('
-			SELECT endereco1 FROM usuario WHERE idusuario = :idusuario',
+	$usuario = $DB->query('
+			SELECT endereco1 FROM usuario WHERE id = :usuario',
 			array(
-					':idusuario' => $_SESSION['idusuario'],
-			));
-	$carregaEnderecoLinha = $carregaEndereco->fetch(PDO::FETCH_NUM);
-	$endereco = $carregaEnderecoLinha['0'];
-
-	echo $endereco;
+					':usuario' => $_SESSION['idusuario'],
+			))->fetch();
+			
+			echo $usuario['endereco1'];
 }

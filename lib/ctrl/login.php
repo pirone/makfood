@@ -8,15 +8,15 @@ if (!isLogado()) {
 	$DB = new DB('localhost', 'root', '', 'makfood');
 
 	$usuarioQuery = $DB->query(
-			'SELECT idusuario, nome FROM usuario WHERE email = :email AND senha = SHA1(:senha)',
+			'SELECT id, nome FROM usuario WHERE email = :email AND senha = SHA1(:senha)',
 			array(':email' => $_POST['username'], ':senha' => $_POST['password'])
 		);
 
 	if ($usuarioQuery->rowCount() == 1) {
-		$usuario = $usuarioQuery->fetch();
+		$pedido = $usuarioQuery->fetch();
 		$_SESSION['logado'] = true;
-		$_SESSION['idusuario'] = $usuario['idusuario'];
-		$_SESSION['nome'] = $usuario['nome'];
+		$_SESSION['idusuario'] = $pedido['id'];
+		$_SESSION['nome'] = $pedido['nome'];
 		echo '1';
 	} else {
 		echo '0';

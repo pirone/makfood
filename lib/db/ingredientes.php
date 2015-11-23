@@ -72,7 +72,6 @@ return array (
 				'preco' => '1,50',
 		)
 );
-
 /*return array (
 	'Tomate' => 'tomate.png',
 	'Presunto' => 'presunto.jpg',
