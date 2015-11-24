@@ -11,13 +11,13 @@ body {
 	border-radius: 13px;
 }
 
-#meusPedidos h3 {
+.cadapedido h3 {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 20px;
 	color: #FF9509;
 }
 
-#meusPedidos h4 {
+.cadapedido h4 {
 	font-family: "Courier New", Courier, monospace;
 	font-size: 15px;
 }
@@ -245,15 +245,44 @@ label.error.valid {
 	background-color: #FF1717;
 }
 
-#inicio div img {
+#fundoinicio{
 	width: 100%;
 	opacity: 0.3;
 }
 
 .carousel-caption span {
-	font-size: 50px;
+	font-size: 36px;
 }
 
 .carousel-caption {
 	top: 0;
 }
+
+#iconpedok {
+	font-size: 80px;
+	color: #3c763d;
+}
+
+#meuspedidos .col-md-12{
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #9C9C9C;
+	margin-bottom: 10px;
+}
+
+#msgprincipal {
+	color: #4F4F4F;
+}
+
+.cadapedido img {
+	height: 70px;
+	border-style: solid;
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-left-width: 2px;
+	border-color: #9C9C9C;
+	border-radius: 10px;
+	margin: 3px;
+}
+

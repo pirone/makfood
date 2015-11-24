@@ -1,10 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `makfood` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `makfood`;
--- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
---
--- Host: localhost    Database: makfood
--- ------------------------------------------------------
--- Server version	5.6.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;

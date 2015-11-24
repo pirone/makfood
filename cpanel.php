@@ -9,6 +9,6 @@
 		<ul class="nav nav-pills nav-stacked fundomenu">
 			<li role="presentation"><a href="altEndereco.php">Alterar Endereço</a></li>
 			<li role="presentation"><a href="altNome.php">Alterar Nome</a></li>
-			<li role="presentation"><a href="#">Alterar Senha</a></li>
+<!-- 			<li role="presentation"><a href="#">Alterar Senha</a></li> -->
 		</ul>
 	</div>

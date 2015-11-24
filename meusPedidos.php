@@ -21,7 +21,7 @@ foreach ( $infoPedidos as $infoPedido ) {
 }
 ?>
 
-<div class="container" id="fundobranco">
+<div class="container fundobranco" id="meuspedidos">
 	<h1>Meus Pedidos</h1>
 	<hr>
 	<div class="row">
@@ -30,7 +30,7 @@ foreach ( $infoPedidos as $infoPedido ) {
 			<div class=col-md-3 id="fotopedido">
 				<img src="lib/img/pizza-b.png"></img>
 			</div>
-			<div class="col-md-7">
+			<div class="col-md-7 cadapedido">
 				<h3>Data do pedido:</h3>
 				<h4><?php echo $pedido[0]['data'] ?></h4>
 				<h3>Tamanho:</h3>
@@ -38,7 +38,7 @@ foreach ( $infoPedidos as $infoPedido ) {
 				<h3>Ingredientes:</h3>
 				<h4>
 					<?php foreach ($pedido as $ing) { ?>
-						<img src="lib/img/<?php echo $ing['iid']; ?>.png" height="60" />
+						<img src="lib/img/<?php echo $ing['iid']; ?>.png" />
 					<?php } ?>
 					</h4>
 				<h3>Valor Total:</h3>
@@ -50,6 +50,7 @@ foreach ( $infoPedidos as $infoPedido ) {
 					class="glyphicon glyphicon-shopping-cart"></span> Pedir Novamente</a>
 			</div>
 		</div>
+		<hr>
 			<?php } ?>
 		</div>
 	<!--
