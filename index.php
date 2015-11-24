@@ -10,6 +10,7 @@
 						<img alt="" src="lib/img/cozinha.jpg" class="img-responsive">
 						<div class="carousel-caption">
 						<?php if (isset($_GET ['status']) && ($_GET ['status'] == "ok")){?>
+							<img alt="" src="lib/img/embalagem.jpg" />
 							<span>AEEEEE</span>
 							<?php };?>
 							

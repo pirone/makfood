@@ -36,7 +36,9 @@
 			</div>
 
 			<ul class="list-group" id="listaIngredientes">
-				<li class="list-group-item disabled"><strong>Selecione os
+				<li class="list-group-item disabled" data-placement="bottom"
+						data-toggle="tooltip" data-trigger="manual"
+						title="Selecione os ingredientes!"><strong>Selecione os
 						Ingredientes:</strong></li>
 						<?php
 						carregaIngredientes ();
@@ -94,7 +96,7 @@
 					</div>
 					<div class="col-md-12" align="right" id="fecharPedido">
 								<?php if (isLogado()){?>	
-									<button type="submit" name="fechaPedido"
+									<button type="submit" name="fechaPedido" id="fecharPedidoBtn"
 							class="btn btn-primary btn-lg" style="margin-top: 10px">
 							<span class="glyphicon glyphicon-ok"></span> Fechar pedido
 						</button>
