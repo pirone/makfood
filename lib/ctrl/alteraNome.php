@@ -6,10 +6,10 @@ if (isset($_POST['salvarNomes'])) {
 	$DB = new DB('localhost', 'root', '', 'makfood');
 
 	$nome = $DB->query('
-			UPDATE usuario SET nome=:novonome, sobrenome=:novosobrenome WHERE idusuario = :idusuario
+			UPDATE usuario SET nome=:novonome, sobrenome=:novosobrenome WHERE id = :idusuario
 		', array(
-				':novonome' => $_POST['novoNome'],
-				':novosobrenome' => $_POST['novoSobrenome'],
+				':novonome' => $_POST['novonome'],
+				':novosobrenome' => $_POST['novosobrenome'],
 				':idusuario' => $_SESSION['idusuario'],
 		));
 	

@@ -11,3 +11,4 @@ function  get_userid(){
 	echo $_SESSION['idusuario'];
 }
 
+

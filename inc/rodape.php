@@ -10,6 +10,8 @@
 <script src="lib/js/plugins/bootstrap.min.js"></script>
 <script src="lib/js/validacao-cadastro.js"></script>
 <script src="lib/js/validacao-login.js"></script>
+<script src="lib/js/validacao-pgto.js"></script>
+<script src="lib/js/validacao-cp.js"></script>
 
 </body>
 </html>

@@ -4,6 +4,7 @@
 <script src="lib/js/trocaimagempizza.js"></script>
 <?php } ?>
 <?php include 'inc/cabecalho.php'; ?>
+<?php include 'lib/helpers/consultasSql.php'?>
 
     <div class="container">	
     		<div id="pizzabanner">
@@ -32,13 +33,14 @@
 					
 					<ul class="list-group" id="listaIngredientes">
 						<li class="list-group-item disabled"><strong>Selecione os Ingredientes:</strong></li>
-						<?php						
-						$ingredientes = include 'lib/db/ingredientes.php';
+						<?php		
+						carregaIngredientes();
+						/*$ingredientes = include 'lib/db/ingredientes.php';
 						//$banco = array(0 => array('nome' => 'Tomate', 'preco' => 2.50));
 						//foreach($ings as $ing) { $ing['nome']... }
 						foreach ($ingredientes as $ingrediente) {
 							echo '<li class="list-group-item"><span>'.$ingrediente['nome'].'</span> <img src="lib/img/'.$ingrediente['imagem'].'" /><span class="badge">R$ '.$ingrediente['preco'].'</span></li>'."\n";
-						}
+						*/
 						?>
 					</ul>
 				</div>

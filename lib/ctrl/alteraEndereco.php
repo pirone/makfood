@@ -6,9 +6,9 @@ if (isset($_POST['salvarEndereco'])) {
 	$DB = new DB('localhost', 'root', '', 'makfood');
 
 	$endereco = $DB->query('
-			UPDATE usuario SET endereco1=:novoendereco WHERE idusuario = :idusuario
+			UPDATE usuario SET endereco1=:novoendereco WHERE id = :idusuario
 		', array(
-				':novoendereco' => $_POST['novoEndereco'],
+				':novoendereco' => $_POST['novoendereco'],
 				':idusuario' => $_SESSION['idusuario'],
 		));
 

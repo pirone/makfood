@@ -1,6 +1,7 @@
 <?php //include 'lib/helpers/auth.php'; ?>
 <?php include 'inc/cabecalho.php'; ?>
 <?php include 'inc/auth.php'; ?>
+
 <div class="container">
 	<h1 class="fundobranco">Bem vindo <?php get_username()?>!</h1>
 	<hr>

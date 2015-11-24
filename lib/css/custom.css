@@ -4,6 +4,7 @@
 
 body {
 	background-color: #FF8C00;
+	
 }
 
 #fundobranco {
@@ -243,4 +244,18 @@ label.error.valid{
 
 #listaIngredientes li+.active {
 	background-color: #FF1717;
+}
+
+#inicio div img{
+	width: 100%;
+	opacity: 0.3;
+
+}
+.carousel-caption span{
+	font-size: 50px;
+	
+}
+
+.carousel-caption{
+	top: 0;
 }

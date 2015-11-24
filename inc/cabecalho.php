@@ -184,19 +184,14 @@ include_once 'lib/helpers/auth.php';
 									<div class="form-group">
 										<input id="login_senha" class="form-control" type="password" name="password" placeholder="Senha" required>
 									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox"> Lembrar-me
-										</label>
-									</div>
 								</div>
 								<div class="modal-footer">
 									<div>
 										<button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
 									</div>
-									<div>
-										<button id="login_lost_btn" type="button" class="btn btn-link">Esqueceu
-											sua Senha?</button>
-									</div>
+<!-- 								<div> -->
+<!-- 									<button id="login_lost_btn" type="button" class="btn btn-link">Esqueceu sua Senha?</button> -->
+<!-- 								</div> -->
 								</div>
 							</form>
 							<!-- End # Login Form -->
