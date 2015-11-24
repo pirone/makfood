@@ -1,9 +1,9 @@
 <?php
-session_start();
+session_start ();
 
-if (isset($_SESSION['logado'])) {
-	session_destroy();
+if (isset ( $_SESSION ['logado'] )) {
+	session_destroy ();
 }
 
-header('Location: ../../index.php');
-die;
+header ( 'Location: ../../index.php' );
+die ();

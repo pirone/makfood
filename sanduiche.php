@@ -1,95 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <body>
-    <div class="container">
+<body>
+	<div class="container">
             <?php include("cabecalho.php"); ?>
 			
 						
-		<center><img src="img/banner-sanduiches.jpg" width=100% height=auto; ></img></center>
-        <div class="panel panel-warning">
-			
+		<center>
+			<img src="img/banner-sanduiches.jpg" width=100% height=auto;></img>
+		</center>
+		<div class="panel panel-warning">
+
 			<div class="panel-heading">Pedir SANDUÍCHE!</div>
-				<div class="panel-body">
-					<button type="button" class="btn btn-warning" id="btmassa">Pão</button>
-					<button type="button" class="btn btn-default" id="bting1" onclick="windowIngred1();">Ingrediente 1</button>
+			<div class="panel-body">
+				<button type="button" class="btn btn-warning" id="btmassa">Pão</button>
+				<button type="button" class="btn btn-default" id="bting1"
+					onclick="windowIngred1();">Ingrediente 1</button>
 
-					<button type="button" title="Adicionar Ingrediente" id="addIngred" class="btn btn-primary" aria-label="Left Align" onclick="createInput();">
-						<span class="glyphicon glyphicon-plus"  aria-hidden="true"></span>
-					
-					<button type="button" title="Adicionar Ingrediente" id="tiraIngred" class="btn btn-danger" aria-label="Left Align" onclick="deleteIngred();" disabled>
-						<span class="glyphicon glyphicon-minus"  aria-hidden="true"></span>
+				<button type="button" title="Adicionar Ingrediente" id="addIngred"
+					class="btn btn-primary" aria-label="Left Align"
+					onclick="createInput();">
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+
+					<button type="button" title="Adicionar Ingrediente" id="tiraIngred"
+						class="btn btn-danger" aria-label="Left Align"
+						onclick="deleteIngred();" disabled>
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 					</button>
-					
-				</div>
-			</div>
 			
-			<div  id="lista">
+			</div>
+		</div>
+
+		<div id="lista">
 			<ul class="list-group" id="listaIngred1">
-				<a href="#" class="list-group-item disabled">Selecione o Ingrediente 1</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de carne</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de frango</a>
+				<a href="#" class="list-group-item disabled">Selecione o Ingrediente
+					1</a>
+				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+					de carne</a>
+				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+					de frango</a>
 				<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
 				<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
 				<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
 				<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
 			</ul>
-			</div>
-			
-			<ul class="list-group" id="listaIngred2" hidden>
-				<a onclick="" class="list-group-item disabled">Selecione o Ingrediente 2</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de carne</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de frango</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
-				<!--<br><button onclick="removeIngred();" class="btn btn-danger" >Remover Ingrediente</button> -->
-			</ul>
-			
-			<ul class="list-group" id="listaIngred3" hidden>
-				<a href="#" class="list-group-item disabled">Selecione o Ingrediente 3</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de carne</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de frango</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
-			</ul>
-			
-			<ul class="list-group" id="listaIngred4" hidden>
-				<a href="#" class="list-group-item disabled">Selecione o Ingrediente 4</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de carne</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de frango</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
-			</ul>
-			
-			<ul class="list-group" id="listaIngred5" hidden>
-				<a href="#" class="list-group-item disabled">Selecione o Ingrediente 5</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de carne</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger de frango</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
-				<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
-				
-			</ul>
+		</div>
 
-			
-			
-			<button type="button" class="btn btn-primary btn-lg pull-right"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Fechar pedido</button>
+		<ul class="list-group" id="listaIngred2" hidden>
+			<a onclick="" class="list-group-item disabled">Selecione o
+				Ingrediente 2</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+				de carne</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+				de frango</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
+			<!--<br><button onclick="removeIngred();" class="btn btn-danger" >Remover Ingrediente</button> -->
+		</ul>
+
+		<ul class="list-group" id="listaIngred3" hidden>
+			<a href="#" class="list-group-item disabled">Selecione o Ingrediente
+				3</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+				de carne</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+				de frango</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
+		</ul>
+
+		<ul class="list-group" id="listaIngred4" hidden>
+			<a href="#" class="list-group-item disabled">Selecione o Ingrediente
+				4</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+				de carne</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+				de frango</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
+		</ul>
+
+		<ul class="list-group" id="listaIngred5" hidden>
+			<a href="#" class="list-group-item disabled">Selecione o Ingrediente
+				5</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+				de carne</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Hambúrger
+				de frango</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Tomate</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Presunto</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Mussarela</a>
+			<a onclick="selecIngred(this);" href="#" class="list-group-item">Bacon</a>
+
+		</ul>
 
 
-	
+
+		<button type="button" class="btn btn-primary btn-lg pull-right">
+			<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+			Fechar pedido
+		</button>
+
+
+
 
 	</div>
-	
-  </body>
-  
-  					<script>
+
+</body>
+
+<script>
 					//var bting = 1;
 					var bting = $("[id^=bting]").length;
 					var valantigo;

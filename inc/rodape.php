@@ -1,5 +1,8 @@
 <div class="container">
-	<center><img alt="" src="lib/img/logosemfundo.png" id="imageminferior" style="width: 40%"></center>
+	<center>
+		<img alt="" src="lib/img/logosemfundo.png" id="imageminferior"
+			style="width: 40%">
+	</center>
 </div>
 
 <script src="lib/js/plugins/jquery.validate.js"></script>

@@ -15,7 +15,7 @@ if (isset ( $_POST ['fechaPedido'] )) {
 			':preco' => $_POST ['total'] 
 	) );
 	
-	$ultimoPedido = $DB->query ( '
+	$ultimoID = $DB->query ( '
 			SELECT id FROM pedidos WHERE usuario = :usuario ORDER BY id DESC LIMIT 1', array (
 			':usuario' => $_SESSION ['idusuario'] 
 	) )->fetch ();
@@ -25,12 +25,12 @@ if (isset ( $_POST ['fechaPedido'] )) {
 		$registraIngred = $DB->query ( '
 			INSERT INTO pedidos_ingredientes (pedido, ingrediente)
 			VALUES (:pedido, :ingrediente)', array (
-				':pedido' => $ultimoPedido ['id'],
+				':pedido' => $ultimoID ['id'],
 				':ingrediente' => $nomeing 
 		) );
 	}
 	
-	header ( 'Location: ../../pagamento.php?idpedido=' . $ultimoPedido ['id'] );
+	header ( 'Location: ../../pagamento.php?idpedido=' . $ultimoID ['id'] );
 	die ();
 }
 

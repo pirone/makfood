@@ -29,55 +29,67 @@ if (isset ( $_GET ['idpedido'] )) {
 				<span><?php echo $pedido['tampizza']; ?></span>
 				<h3>Ingredientes:</h3>
 					<?php
-					$ingredientes = $DB->query ( '
+			$ingredientes = $DB->query ( '
 									SELECT ingrediente, nome FROM pedidoingnome WHERE pedido = :pedido', array (
-							':pedido' => $_GET ['idpedido'] 
-					) )->fetchAll();
-					
-					foreach ($ingredientes as $ing) {
-						echo '<img src="lib/img/'.$ing['ingrediente'].'.png" title="'.$ing['nome'].'">';
-					}
-					?>
+					':pedido' => $_GET ['idpedido'] 
+			) )->fetchAll ();
+			
+			foreach ( $ingredientes as $ing ) {
+				echo '<img src="lib/img/' . $ing ['ingrediente'] . '.png" title="' . $ing ['nome'] . '">';
+			}
+			?>
 			</div>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-12">
-			<form class="form-horizontal" action="lib/ctrl/realizaPagamento.php?idpedido=<?php $_GET ['idpedido'];?>" method="post" role="form" id="formpgto">
+			<form class="form-horizontal"
+				action="lib/ctrl/realizaPagamento.php?idpedido=<?php $_GET ['idpedido'];?>"
+				method="post" role="form" id="formpgto">
 				<fieldset>
 					<legend>Pagamento</legend>
 					<div class="form-group">
-						<label class="col-sm-3 control-label" for="enderecoEntrega">Endereço de Entrega</label>
+						<label class="col-sm-3 control-label" for="enderecoEntrega">Endereço
+							de Entrega</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" name="endentrega" id="endentrega" value="<?php carregaEndereco()?>"></input>
+							<input type="text" class="form-control" name="endentrega"
+								id="endentrega" value="<?php carregaEndereco()?>"></input>
 						</div>
 					</div>
 					<hr>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="total">R$</label>
 						<div class="col-sm-1">
-							<input type="text" class="form-control" name="total" readonly="readonly" value="<?php carregapreco()?>"></input>
+							<input type="text" class="form-control" name="total"
+								readonly="readonly" value="<?php carregapreco()?>"></input>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label" for="nomecartao">Nome no cartão</label>
+						<label class="col-sm-3 control-label" for="nomecartao">Nome no
+							cartão</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" maxlength="40" name="nomecartao" id="nomecartao" placeholder="Nome como escrito no cartão">
+							<input type="text" class="form-control" maxlength="40"
+								name="nomecartao" id="nomecartao"
+								placeholder="Nome como escrito no cartão">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label" for="numcartao">Número do cartão</label>
+						<label class="col-sm-3 control-label" for="numcartao">Número do
+							cartão</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" name="numcartao" id="numcartao" placeholder="Número do cartão">
+							<input type="text" class="form-control" name="numcartao"
+								id="numcartao" placeholder="Número do cartão">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label" for="datavencimento">Data de vencimento</label>
+						<label class="col-sm-3 control-label" for="datavencimento">Data de
+							vencimento</label>
 						<div class="col-sm-9">
 							<div class="row">
 								<div class="col-xs-3">
-									<select class="form-control col-sm-2" name="mesvenc" id="mesvenc">
+									<select class="form-control col-sm-2" name="mesvenc"
+										id="mesvenc">
 										<option value="">Mês</option>
 										<option value="01">Jan (01)</option>
 										<option value="02">Fev (02)</option>
@@ -112,9 +124,11 @@ if (isset ( $_GET ['idpedido'] )) {
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label" for="cvv">Códivo de verificação</label>
+						<label class="col-sm-3 control-label" for="cvv">Códivo de
+							verificação</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" name="cvv" id="cvv" placeholder="Código de Segurança">
+							<input type="text" class="form-control" name="cvv" id="cvv"
+								placeholder="Código de Segurança">
 						</div>
 					</div>
 					<div class="form-group">

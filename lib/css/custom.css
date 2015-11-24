@@ -4,7 +4,6 @@
 
 body {
 	background-color: #FF8C00;
-	
 }
 
 #fundobranco {
@@ -77,10 +76,10 @@ label.error {
 	padding: 15px;
 }
 
-#divimgsup img{
+#divimgsup img {
 	border-radius: 5px;
 	height: 250px;
-	width: 100%;	
+	width: 100%;
 }
 
 #pizzabanner {
@@ -95,7 +94,7 @@ label.error {
 }
 
 #pizzabanner ul {
-	padding: 0;	
+	padding: 0;
 	list-style: none;
 }
 
@@ -104,7 +103,7 @@ label.error {
 	height: 285px;
 }
 
-#ingpizza{
+#ingpizza {
 	margin-top: 15px;
 	margin-right: 0;
 }
@@ -121,15 +120,17 @@ html.logado #menuRegistro, html.logado #menuLogin {
 	display: none;
 }
 
-#massapizza.pizzapequena{
+#massapizza.pizzapequena {
 	width: 40%;
-} 
-#massapizza.pizzamedia{
+}
+
+#massapizza.pizzamedia {
 	width: 60%;
-} 
-#massapizza.pizzagrande{
+}
+
+#massapizza.pizzagrande {
 	width: 80%;
-} 
+}
 
 .fundobranco {
 	background-color: #FFFFFF;
@@ -141,21 +142,20 @@ html.logado #menuRegistro, html.logado #menuLogin {
 	padding: 10px 10px 10px 10px;
 }
 
-.fundobranco hr{
+.fundobranco hr {
 	background-color: #e5e5e5;
 	height: 1.4px;
 }
 
-.nav li a{
+.nav li a {
 	font-weight: bold;
 	color: #000;
 	font-family: "Arial", Times, serif;
 }
 
-.fundomenu{
+.fundomenu {
 	background-color: #FFF;
 	border-radius: 5px;
-
 }
 
 div #menucp ul {
@@ -168,11 +168,11 @@ div #menucp ul {
 	padding-left: 0;
 }
 
-#menucp .nav>li>a:focus, #menucp .nav>li>a:hover{
+#menucp .nav>li>a:focus, #menucp .nav>li>a:hover {
 	background-color: #FF4500;
 }
 
-#imageminferior{
+#imageminferior {
 	margin-top: 200px;
 }
 
@@ -180,8 +180,7 @@ div #menucp ul {
 	margin-top: 25px;
 }
 
-
-label.error.valid{
+label.error.valid {
 	color: #008000;
 	padding-left: 4px;
 }
@@ -197,14 +196,14 @@ label.error.valid{
 	border-color: #000;
 }
 
-#fotopedido img{
-	width: auto; 
+#fotopedido img {
+	width: auto;
 	height: 250px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
-#dadosPedido img{
+#dadosPedido img {
 	height: 70px;
 	border-style: solid;
 	border-bottom-width: 2px;
@@ -216,7 +215,7 @@ label.error.valid{
 	margin: 3px;
 }
 
-#dadosPedido h3{
+#dadosPedido h3 {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 20px;
 	color: #FF9509;
@@ -226,12 +225,12 @@ label.error.valid{
 	margin-top: 10px;
 }
 
-#divtotalpizza{
+#divtotalpizza {
 	padding-left: 0px;
 	padding-right: 0px;
 }
 
-#totalpizza{
+#totalpizza {
 	text-align: right;
 }
 
@@ -246,16 +245,15 @@ label.error.valid{
 	background-color: #FF1717;
 }
 
-#inicio div img{
+#inicio div img {
 	width: 100%;
 	opacity: 0.3;
-
 }
-.carousel-caption span{
+
+.carousel-caption span {
 	font-size: 50px;
-	
 }
 
-.carousel-caption{
+.carousel-caption {
 	top: 0;
 }
